@@ -1,6 +1,3 @@
-import React from 'react'
-import {useState} from 'react'
-import {useRef} from 'react'
 import {
   CalendarIcon,
   ChartBarIcon,
@@ -8,42 +5,39 @@ import {
   PhotographIcon,
   XIcon,
 } from "@heroicons/react/outline";
-import {Picker} from "emoji-mart";
+import { useRef, useState } from "react";
+import { db, storage } from "../firebase";
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  updateDoc,
+} from "@firebase/firestore";
+import { getDownloadURL, ref, uploadString } from "@firebase/storage";
+import { signOut, useSession } from "next-auth/react";
+import dynamic from "next/dynamic";
+// const Picker = dynamic(() => import("emoji-picker-react"), { ssr: false });
+import { Picker } from "emoji-mart";
 import "emoji-mart/css/emoji-mart.css";
 
 function Input() {
-    const [input, setInput] = useState()
-    const [selectedFile, setSelectedFile] = useState(null)
-    const filePickerRef = useRef(null)
-    const [showEmojis, setShowEmojis] = useState(false);
-   
-    const addImageToPost = (e) => {
-    const reader = new FileReader();
-    if (e.target.files[0]) {
-      reader.readAsDataURL(e.target.files[0]);
-    }
-
-    reader.onload = (readerEvent) => {
-      setSelectedFile(readerEvent.target.result);
-    }
-  }
-    const addEmoji = (e) => {
-    let sym = e.unified.split("-");
-    let codesArray = [];
-    sym.forEach((el) => codesArray.push("0x" + el));
-    let emoji = String.fromCodePoint(...codesArray);
-    setInput(input + emoji);
-  }
+  // const { data: session } = useSession();
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const filePickerRef = useRef(null);
+  const [showEmojis, setShowEmojis] = useState(false);
 
   const sendPost = async () => {
     if (loading) return;
     setLoading(true);
 
     const docRef = await addDoc(collection(db, "posts"), {
-      id: session.user.uid,
-      username: session.user.name,
-      userImg: session.user.image,
-      tag: session.user.tag,
+      // id: session.user.uid,
+      // username: session.user.name,
+      // userImg: session.user.image,
+      // tag: session.user.tag,
       text: input,
       timestamp: serverTimestamp(),
     });
@@ -65,7 +59,25 @@ function Input() {
     setShowEmojis(false);
   };
 
-  
+  const addImageToPost = (e) => {
+    const reader = new FileReader();
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
+
+    reader.onload = (readerEvent) => {
+      setSelectedFile(readerEvent.target.result);
+    }
+  }
+
+  const addEmoji = (e) => {
+    let sym = e.unified.split("-");
+    let codesArray = [];
+    sym.forEach((el) => codesArray.push("0x" + el));
+    let emoji = String.fromCodePoint(...codesArray);
+    setInput(input + emoji);
+  };
+
 
   return (
     <div className="border-b border-gray-700 p-3 flex space-x-3 overflow-auto">
@@ -75,8 +87,8 @@ function Input() {
           className="h-11 w-11 rounded-full cursor-pointer"
         />
     <div className="w-full divide-y divide-gray-700">
-        <div>
-            <textarea value={input} rows="2" placeholder="Wanna Share?" className="bg-transparent outline-none text-[#d9d9d9] text-lg placeholder-gray-500 tracking-wide w-full min-h-[50px]"/>
+        <div className={`${selectedFile} && "pb-7" ${input} && "space-y-2.5"}`}>
+            <textarea value={input} rows="2"  onChange={(e) => setInput(e.target.value)} placeholder="Wanna Share?" className="bg-transparent outline-none text-[#d9d9d9] text-lg placeholder-gray-500 tracking-wide w-full min-h-[50px]"/>
 
         
 {selectedFile && (
@@ -87,7 +99,8 @@ function Input() {
             <img src={selectedFile} alt="" className="rounded-2x1 max-h-80 object-contain" />
         </div>
         )}
-    </div>        
+    </div>   
+    {!loading &&(
 <div className="flex items-center justify-between pt-2.5">
     <div className="flex items-center">
         <div className="icon" onClick={() => filePickerRef.current.click()}>
@@ -131,6 +144,7 @@ function Input() {
             >Tweet
 </button>
 </div>
+    )}
 </div>
 </div>
     
