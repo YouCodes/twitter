@@ -1,0 +1,11 @@
+import {atom} from "recoil"
+
+export const postIdState = atom({
+    key: "postIdState",
+    default: false,
+})
+
+export const modalState = atom({
+    key: "modalState",
+    default: "",
+})

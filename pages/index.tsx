@@ -5,9 +5,14 @@ import Sidebar from '../components/Sidebar'
 import Feed from '../components/Feed'
 import { getProviders, getSession, useSession } from "next-auth/react"
 import Login from '../components/Login'
+import Widgets from '../components/Widgets'
+import Modal from '../components/Modal'
+import { modalState } from "../atoms/modalAtom";
+import { useRecoilState } from "recoil";
 
 export default function Home({trendingResults, followResults, providers}) {
 const {data:session} = useSession();
+const [isOpen, setIsOpen] = useRecoilState(modalState);
 
 if(!session) return <Login providers={providers} />
 
@@ -20,22 +25,22 @@ if(!session) return <Login providers={providers} />
     <main className="bg-black min-h-screen flex max-w-screen mx-auto">
     <Sidebar />
     <Feed />
-    {/*Widgets*/}
+    <Widgets 
+     trendingResults={trendingResults}
+    followResults={followResults}
+    />
 
-    {/*Modal*/}
-
+    {isOpen && <Modal />}
     </main>
-
-
     </div>
   )
 }
 
 export async function getServerSideProps(context) {
-  const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
+  const trendingResults = await fetch("https://jsonkeeper.com/b/QQMR").then(
     (res) => res.json()
   );
-  const followResults = await fetch("https://jsonkeeper.com/b/WWMJ").then(
+  const followResults = await fetch("https://jsonkeeper.com/b/G3RX").then(
     (res) => res.json()
   );
   const providers = await getProviders();

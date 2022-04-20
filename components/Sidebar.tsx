@@ -37,7 +37,7 @@ function Sidebar() {
         Tweet
       </button>
       </div>
-    <div className="text-[#d9d9d9] flex items-center justify-center content-center mt-auto hoverAnimation space-x-3 xl: pl-5 xl:ml-20 xl:mb-1" onClick={signOut}>
+    <div className="text-[#d9d9d9] flex items-center justify-center content-center mt-auto hoverAnimation space-x-3 sm:pl-0 xl:pl-5 xl:ml-20 xl:mb-1" onClick={signOut}>
         <img
           src={session.user.image}
           alt=""
