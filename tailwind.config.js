@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {},
   },
+   darkMode: 'media',  // or darkMode: 'class'
   plugins: [
     require("tailwind-scrollbar")
   ],
