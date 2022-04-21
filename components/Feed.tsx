@@ -12,16 +12,18 @@ function Feed() {
   const { data: session } = useSession();
   const [posts, setPosts] = useState([]);
 
-  useEffect(
-    () =>
-      onSnapshot(
-        query(collection(db, "posts"), orderBy("timestamp", "desc")),
-        (snapshot) => {
-          setPosts(snapshot.docs);
-        }
-      ),
-    [db]
-  );
+    useEffect(() => {
+    const unsubscribe = onSnapshot(
+      query(collection(db, "posts"), orderBy("timestamp", "desc")),
+      (snapshot) => {
+        setPosts(snapshot.docs);
+      }
+    );
+
+    return () => {
+      unsubscribe();
+    };
+  }, [db]);
 
   return (
     <div className="flex-grow border-l border-r border-gray-700 max-w-6xl xl:max-w-7xl 2xl:max-w-10xl sm:ml-[73px] xl:ml-[370px]">
