@@ -26,16 +26,16 @@ function Feed() {
   // }, [db]);
 
   // CLEAN
-  useEffect(
-    () =>
-      onSnapshot(
-        query(collection(db, "posts"), orderBy("timestamp", "desc")),
-        (snapshot) => {
-          setPosts(snapshot.docs);
-        }
-      ),
-    [db]
-  );
+  // useEffect(
+  //   () =>
+  //     onSnapshot(
+  //       query(collection(db, "posts"), orderBy("timestamp", "desc")),
+  //       (snapshot) => {
+  //         setPosts(snapshot.docs);
+  //       }
+  //     ),
+  //   [db]
+  // );
 
   return (
     <div className="flex-grow border-l border-r border-gray-700 max-w-2xl sm:ml-[73px] xl:ml-[370px]">
