@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 
 function Feed() {
   const { data: session } = useSession();
-  const [posts, setPosts] = useState([]) as any;
+  const [posts, setPosts] = useState([]);
 
   // MESSY
   // useEffect(() => {
@@ -30,7 +30,7 @@ function Feed() {
       onSnapshot(
         query(collection(db, "posts"), orderBy("timestamp", "desc")),
         (snapshot) => {
-          setPosts(snapshot.docs);
+          setPosts(snapshot.docs as any);
         }
       ),
     [db]
