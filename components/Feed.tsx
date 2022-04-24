@@ -1,3 +1,4 @@
+import React from 'react'
 import { SparklesIcon } from "@heroicons/react/outline";
 import { useEffect, useState } from "react";
 import Input from "./Input";
@@ -8,7 +9,7 @@ import { useSession } from "next-auth/react";
 
 function Feed() {
   const { data: session } = useSession();
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<IPost>([]);
 
   // MESSY
   // useEffect(() => {
@@ -30,7 +31,7 @@ function Feed() {
       onSnapshot(
         query(collection(db, "posts"), orderBy("timestamp", "desc")),
         (snapshot) => {
-          setPosts(snapshot.docs as string[]);
+          setPosts(snapshot.docs as IPost[]);
         }
       ),
     [db]
