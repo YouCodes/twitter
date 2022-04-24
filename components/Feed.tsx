@@ -30,7 +30,7 @@ function Feed() {
       onSnapshot(
         query(collection(db, "posts"), orderBy("timestamp", "desc")),
         (snapshot) => {
-          setPosts(snapshot.docs as any);
+          setPosts(snapshot.docs as string[]);
         }
       ),
     [db]
