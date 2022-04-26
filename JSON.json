@@ -1,28 +1,30 @@
 [
   {
-    "heading": "T20 World Cup 2021 · LIVE",
-    "description": "NZvAUS: New Zealand and Australia clash in the T20 World Cup final",
-    "img": "/img/girlprof.jpg",
+    "heading": "Business and finance ⋅ This morning",
+    "description": "After a long discussion, Twitter accepts Musk's offer of $44 billion",
+    "img": "/img/elontwitter.jpg",
     "tags": [
-      "#T20WorldCupFinal, ",
-      "Kane Williamson"
+      "#Tesla, ",
+      "#Twitter, ",
+      "Elon Musk"
     ]
   },
   {
-    "heading": "Trending in United Arab Emirates",
-    "description": "#earthquake",
-    "img": "/img/girlprof.jpg",
+    "heading": "News",
+    "description": "Russia's war in Ukraine continues",
+    "img": "/img/download.jpg",
     "tags": [
-      "#DubaiAirshow, ",
-      "#gessdubai"
+      "Ukraine, ",
+      "Russia"
     ]
   },
   {
     "heading": "Trending in Digital Creators",
-    "description": "tubbo and quackity",
+    "description": "Teen artist makes millions off NFTs",
     "img": "/img/girlprof.jpg",
     "tags": [
-      "QUACKITY AND TUBBO,"
+      "Joma Tech, ",
+      "Bored Ape Yacht Club"
     ]
   }
 ]

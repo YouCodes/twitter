@@ -1,16 +1,16 @@
 [
   {
-    "userImg": "/img/girlprof.jpg",
+    "userImg": "/img/spacex.jpg",
     "username": "SpaceX",
     "tag": "@SpaceX"
   },
   {
-    "userImg":"/img/girlprof.jpg",
+    "userImg":"/img/musk.jpg",
     "username": "Elon Musk",
     "tag": "@elonmusk"
   },
   {
-    "userImg": "/img/girlprof.jpg",
+    "userImg": "/img/tesla.jpg",
     "username": "Tesla",
     "tag": "@Tesla"
   }

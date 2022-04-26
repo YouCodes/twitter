@@ -36,10 +36,10 @@ if(!session) return <Login providers={providers} />
 }
 
 export async function getServerSideProps(context) {
-  const trendingResults = await fetch("https://jsonkeeper.com/b/QQMR").then(
+  const trendingResults = await fetch("https://jsonkeeper.com/b/Q9G6").then(
     (res) => res.json()
   );
-  const followResults = await fetch("https://jsonkeeper.com/b/G3RX").then(
+  const followResults = await fetch("https://jsonkeeper.com/b/KD2B").then(
     (res) => res.json()
   );
   const providers = await getProviders();
