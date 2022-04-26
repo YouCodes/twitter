@@ -20,6 +20,7 @@ import {
   HomeIcon
 } from "@heroicons/react/outline";
 import SidebarLink from "./SidebarLink"
+import {signOut} from "next-auth/react"
 
 function Feed() {
   const { data: session } = useSession();
@@ -46,14 +47,14 @@ function Feed() {
         </div>
       </div>
 
-       <div className="sticky top-[93.5vh] bg-black border-b border-gray-700 xl:hidden lg:hidden md:hidden" >
+       <div className="sticky top-[93.3vh] bg-black border-b border-gray-700 xl:hidden lg:hidden md:hidden" >
     
     <div className="flex-1">
     <footer className="flex">
-    <a className="ml-[50px] w-1/4  text-center" href=""> <SidebarLink Icon={HomeIcon} active /></a>
-    <a className="w-1/4  text-center" href=""> <SidebarLink text="Messages" Icon={InboxIcon} /></a>
-    <a className="w-1/4  text-center" href=""> <a href="https://tesla-parallax.vercel.app/"> <SidebarLink text="Tesla" Icon={PlusIcon}  /></a></a>
-    <a className="w-1/4  text-center" href=""><SidebarLink Icon={LogoutIcon} /></a>
+    <a className="ml-[40px] w-1/4  text-center" href=""> <SidebarLink Icon={HomeIcon} active /></a>
+    <a className="w-1/4  text-center" href=""> <SidebarLink Icon={InboxIcon} /></a>
+    <a className="w-1/4  text-center" href="https://tesla-parallax.vercel.app/"> <SidebarLink Icon={PlusIcon}  /></a>
+    <a className="w-1/4  text-center" href=""><div onClick={signOut}><SidebarLink Icon={LogoutIcon} /></div></a>
     </footer>
     </div>
     </div>

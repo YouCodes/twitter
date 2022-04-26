@@ -33,12 +33,12 @@ function Sidebar() {
        <a> <SidebarLink text="Lists" Icon={ClipboardListIcon} /></a>
        <a> <SidebarLink text="Profile" Icon={UserIcon} /></a>
          <a href="https://tesla-parallax.vercel.app/"> <SidebarLink text="Tesla" Icon={PlusIcon}  /></a>
-         <a className="xl:hidden"><SidebarLink text="Logout" Icon={LogoutIcon}/></a>
+         <a className="xl:hidden" onClick={signOut}><SidebarLink text="Logout" Icon={LogoutIcon}/></a>
       <button className="hidden xl:inline ml-auto bg-[#1d9bf0] text-white rounded-full w-56 h-[52px] text-lg font-bold shadow-md hover:bg-[#1a8cd8]">
         Tweet
       </button>
       </div>
-    <div className="text-[#d9d9d9] flex items-center justify-center content-center mt-auto hoverAnimation space-x-3 sm:pl-0 xl:pl-5 xl:ml-20 xl:mb-1" onClick={signOut}>
+    <div className="text-[#d9d9d9] flex items-center justify-center content-center mt-auto hoverAnimation space-x-3 sm:pl-0 xl:pl-5 xl:ml-20 xl:mb-1">
         <img
           src={session.user.image}
           alt=""
@@ -52,7 +52,7 @@ function Sidebar() {
           {session.user.tag}
         </p>
         </div>
-        <div className="hidden xl:inline leading-5">
+        <div className="hidden xl:inline leading-5" onClick={signOut}>
 <SidebarLink Icon={LogoutIcon} />
       </div>
       </div>
