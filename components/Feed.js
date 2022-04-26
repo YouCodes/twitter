@@ -51,10 +51,10 @@ function Feed() {
     
     <div className="flex-1">
     <footer className="flex">
-    <a className="ml-[46px] w-1/4  text-center" href=""> <SidebarLink Icon={HomeIcon} active /></a>
+    <a className="ml-[43px] w-1/4  text-center" href=""> <SidebarLink Icon={HomeIcon} active /></a>
     <a className="w-1/4  text-center" href=""> <SidebarLink Icon={InboxIcon} /></a>
     <a className="w-1/4  text-center" href="https://tesla-parallax.vercel.app/"> <SidebarLink Icon={PlusIcon}  /></a>
-    <a className="w-1/4  text-center" href=""><div onClick={signOut}><SidebarLink Icon={LogoutIcon} /></div></a>
+    <a className="w-1/4  text-center" onClick={signOut}><SidebarLink Icon={LogoutIcon} /></a>
     </footer>
     </div>
     </div>

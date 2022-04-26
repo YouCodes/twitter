@@ -27,7 +27,7 @@ function Sidebar() {
       </div>
       <div className="justify-between space-y-5 mt-4 mb-2.5 xl:ml-24">
        <SidebarLink text="Home" Icon={HomeIcon} active />
-     <a> <div onClick={signOut}>  <SidebarLink text="Notifications" Icon={BellIcon} /></div> </a>
+     <a> <div>  <SidebarLink text="Notifications" Icon={BellIcon} /></div> </a>
       <a>  <SidebarLink text="Messages" Icon={InboxIcon} /></a>
        <a> <SidebarLink text="Bookmarks" Icon={BookmarkIcon} /> </a>
        <a> <SidebarLink text="Lists" Icon={ClipboardListIcon} /></a>
