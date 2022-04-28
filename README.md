@@ -1,4 +1,4 @@
-# twitter with a twist
+# Twitter With A Twist
 Made with React, Next.js, Firebase, NextAuth, Recoil
 
 What Twitter might be like with Elon Musk running it
