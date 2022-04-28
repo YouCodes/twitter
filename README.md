@@ -9,5 +9,5 @@ https://twitterxtesla.vercel.app/
 Feed Functionality
 ![](https://user-images.githubusercontent.com/81671608/165758183-d9d0950c-2a26-4568-8826-05ebeeb3ab8d.gif)
 
-IOS/Android Navigation
 ![](https://user-images.githubusercontent.com/81671608/165758231-ffadb77e-1334-4029-bda3-09dddb8370b3.gif)
+IOS/Android Navigation
