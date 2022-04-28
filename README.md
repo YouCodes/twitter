@@ -1,5 +1,7 @@
-# twitter
+# twitter with a twist
 Made with React, Next.js, Firebase, NextAuth, Recoil
+
+What Twitter might be like with Elon Musk running it
 
 Deployed Here:
 https://twitterxtesla.vercel.app/
