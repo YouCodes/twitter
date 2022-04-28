@@ -2,7 +2,7 @@
 Made with React, Next.js, Firebase, NextAuth, Recoil
 
 Deployed Here:
-https://twitter-youcodes.vercel.app/
+https://twitterxtesla.vercel.app/
 
 ![](https://user-images.githubusercontent.com/81671608/165758165-4d0af764-c437-4a4d-8eb6-5b6b2c0e197c.gif)
 
