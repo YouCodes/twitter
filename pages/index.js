@@ -37,10 +37,10 @@ if(!session) return <Login providers={providers} />
 }
 
 export async function getServerSideProps(context) {
-  const trendingResults = await fetch("http://localhost:3000/JSON.json").then(
+  const trendingResults = await fetch("https://twitterxtesla.vercel.app/JSON.json").then(
     (res) => res.json()
   );
-  const followResults = await fetch("http://localhost:3000/JSON2.json").then(
+  const followResults = await fetch("https://twitterxtesla.vercel.app/JSON2.json").then(
     (res) => res.json()
   );
   const providers = await getProviders();
