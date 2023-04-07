@@ -9,6 +9,7 @@ import Modal from '../components/Modal'
 import { modalState } from "../atoms/modalAtom";
 import { useRecoilState } from "recoil";
 
+
 export default function Home({trendingResults, followResults, providers}) {
 const {data:session} = useSession();
 const [isOpen, setIsOpen] = useRecoilState(modalState);
@@ -36,10 +37,10 @@ if(!session) return <Login providers={providers} />
 }
 
 export async function getServerSideProps(context) {
-  const trendingResults = await fetch("https://jsonkeeper.com/b/Q9G6").then(
+  const trendingResults = await fetch("http://localhost:3000/JSON.json").then(
     (res) => res.json()
   );
-  const followResults = await fetch("https://jsonkeeper.com/b/KD2B").then(
+  const followResults = await fetch("http://localhost:3000/JSON2.json").then(
     (res) => res.json()
   );
   const providers = await getProviders();

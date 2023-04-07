@@ -19,6 +19,7 @@ import { ArrowLeftIcon } from "@heroicons/react/solid";
 import Comment from "../components/Comment";
 import Head from "next/head";
 
+
 function PostPage({ trendingResults, followResults, providers }) {
   const { data: session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState);
@@ -97,10 +98,10 @@ function PostPage({ trendingResults, followResults, providers }) {
 export default PostPage;
 
 export async function getServerSideProps(context) {
-  const trendingResults = await fetch("https://jsonkeeper.com/b/QQMR").then(
+  const trendingResults = await fetch("https://twitterxtesla.vercel.app/JSON.json").then(
     (res) => res.json()
   );
-  const followResults = await fetch("https://jsonkeeper.com/b/G3RX").then(
+  const followResults = await fetch("https://twitterxtesla.vercel.app/JSON2.json").then(
     (res) => res.json()
   );
   const providers = await getProviders();
